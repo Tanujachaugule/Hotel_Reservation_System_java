@@ -1,46 +1,47 @@
 package com.hotelreservation;
 
-public class Hotel {
-    private String hotelName;
-    private  String hotelType;
-    private int rates;
+public class Hotel implements Comparable<Hotel>{
+    private String name;
+    private float rate;
 
     public Hotel(String hotelName, String hotelType, int rates) {
-        this.hotelName = hotelName;
-        this.hotelType = hotelType;
-        this.rates = rates;
     }
 
-    public String getHotelName() {
-        return hotelName;
+    public Hotel() {
+
     }
 
-    public void setHotelName(String hotelName) {
-        this.hotelName = hotelName;
+
+    public String getName() {
+        return name;
     }
 
-    public String getHotelType() {
-        return hotelType;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setHotelType(String hotelType) {
-        this.hotelType = hotelType;
+    public float getRate() {
+        return rate;
     }
 
-    public int getRates() {
-        return rates;
+    public void setRate(float rate) {
+        this.rate = rate;
     }
 
-    public void setRates(int rates) {
-        this.rates = rates;
-    }
+
 
     @Override
     public String toString() {
         return "Hotel{" +
-                "hotelName='" + hotelName + '\'' +
-                ", hotelType='" + hotelType + '\'' +
-                ", rates=" + rates +
-                '}';
+                "name='" + name + '\'' +
+                ", rate=" + rate + '}';
     }
+
+
+    @Override
+    public int compareTo(Hotel h) {
+        return (int) (this.rate - h.rate);
+    }
+
+
 }
