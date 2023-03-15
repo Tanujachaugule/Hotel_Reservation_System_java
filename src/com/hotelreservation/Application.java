@@ -15,6 +15,7 @@ public class Application {
         System.out.println("Welcome to Hotel Reservation System");
 
         Application application = new Application();
+
         application.provideUserOption();
     }
 
@@ -22,7 +23,8 @@ public class Application {
         while(true) {
             System.out.println("Choose Options " +
                     "\n1. Add Hotel" +
-                    "\n2. Find Cheapest Hotel " );
+                    "\n2. Find Cheapest Hotel for weekdays and Weekends" +
+                    "\n3. Find Cheapest  best rated hotel ");
             String userOption = scanner.next();
             switch (userOption) {
                 case "1" :
@@ -100,6 +102,7 @@ public class Application {
                 bestRatedList.add(hotel);
             }
         }
+        System.out.println("\n All the hotels with best rating are  :" + bestRatedList + "\n");
         System.out.println("You can choose any 1 of this Best rated hotels having cheapest cost: \n");
         bestRatedList.stream();
         bestRatedList.sort(Comparator.comparing(Hotel::getRate));
