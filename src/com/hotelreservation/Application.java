@@ -2,6 +2,8 @@ package com.hotelreservation;
 
 
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class Application {
@@ -76,5 +78,31 @@ public class Application {
         } else {
             System.out.println("Cheapest hotel is " + cheapestHote2.getName() + " having rate $" + totalRate);
         }
+    }
+    public void findBestRatedHotel() throws ParseException {
+
+        System.out.println("Enter check-In Date : (dd/mm/yyyy)");
+        String checkInDate = scanner.next();
+        System.out.println("Enter check-Out Date : (dd/mm/yyyy)");
+        String checkOutDate = scanner.next();
+
+        String Day1 = hotelManagementSystem.findDayOfWeek(checkInDate);
+        String Day2 = hotelManagementSystem.findDayOfWeek(checkOutDate);
+
+        int days = hotelManagementSystem.findDateDifference(checkInDate, checkOutDate);
+        System.out.println("Number of days stying in hotel " + days);
+        Hotel cheapestHotel = hotelManagementSystem.findCheapestHotel(days);
+        float totalRate = cheapestHotel.getRate() * days;
+
+        ArrayList<Hotel> bestRatedList = new ArrayList<>();
+        for (Hotel hotel : hotelManagementSystem.hotelList) {
+            if (hotel.getRatings() >= 4) {
+                bestRatedList.add(hotel);
+            }
+        }
+        System.out.println("You can choose any 1 of this Best rated hotels having cheapest cost: \n");
+        bestRatedList.stream();
+        bestRatedList.sort(Comparator.comparing(Hotel::getRate));
+        bestRatedList.forEach((Hotel h) -> System.out.println("Hotel " + h.getName() + ", with Rating = " + h.getRatings() + ", is available at $ = " + (h.getRate() * days) ));
     }
 }

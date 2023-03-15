@@ -63,6 +63,7 @@ public class Hotel implements Comparable<Hotel>{
 
     @Override
     public int compareTo(Hotel h) {
+
         return (int) (this.rate - h.rate);
     }
 
