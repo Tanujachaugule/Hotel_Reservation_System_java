@@ -5,7 +5,8 @@ public class Hotel implements Comparable<Hotel>{
     private float rate;
     private float weekendRate;
     private int ratings;
-
+    private float rateForRewardCustomer;
+    private float weekendRateForRewardCustomer;
 
     public Hotel(String hotelName, String hotelType, int rates) {
     }
@@ -47,7 +48,21 @@ public class Hotel implements Comparable<Hotel>{
     public void setRatings(int ratings) {
         this.ratings = ratings;
     }
+    public float getRateForRewardCustomer() {
+        return rateForRewardCustomer;
+    }
 
+    public void setRateForRewardCustomer(float rateForRewardCustomer) {
+        this.rateForRewardCustomer = rateForRewardCustomer;
+    }
+
+    public float getWeekendRateForRewardCustomer() {
+        return weekendRateForRewardCustomer;
+    }
+
+    public void setWeekendRateForRewardCustomer(float weekendRateForRewardCustomer) {
+        this.weekendRateForRewardCustomer = weekendRateForRewardCustomer;
+    }
 
 
     @Override
@@ -57,6 +72,8 @@ public class Hotel implements Comparable<Hotel>{
                 ", rate=" + rate +
                 ", weekendRate=" + weekendRate +
                 ", ratings=" + ratings +
+                ", rateForRewardCustomer=" + rateForRewardCustomer +
+                ", weekendRateForRewardCustomer=" + weekendRateForRewardCustomer +
                 '}';
     }
 
